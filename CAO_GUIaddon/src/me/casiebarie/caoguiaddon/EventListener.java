@@ -47,7 +47,7 @@ public class EventListener implements Listener {
 					if(localNameSplit[1].equals("Restraints")) {caoAPI.restraints(player, attractionName);}
 					if(localNameSplit[1].equals("Gates")) {caoAPI.gates(player, attractionName);}
 					if(localNameSplit[1].equals("Release")) {caoAPI.release(player, attractionName);}
-					if(localNameSplit[1].equals("Power")) {caoAPI.power(player, attractionName, "TOGLLE");}
+					if(localNameSplit[1].equals("Power")) {caoAPI.power(player, attractionName, "TOGGLE");}
 					if(closeOnClick) {player.closeInventory();}
 					else {menu.updateMenu(player, e.getClickedInventory(), attractionName);}
 				}

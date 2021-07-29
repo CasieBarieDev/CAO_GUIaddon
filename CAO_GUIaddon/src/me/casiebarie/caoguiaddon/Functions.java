@@ -35,12 +35,6 @@ public class Functions {
 		plugin.saveDefaultConfig();
 		caoAPI.sendMessage(sender, "Reload", "", "GUIaddon Config");
 	}
-	public void runCAOmethod(CommandSender sender, String attractionName, String mode) {
-		if(mode.equals("RESTRAINTS")) {caoAPI.restraints(sender, attractionName);}
-		else if(mode.equals("GATES")) {caoAPI.gates(sender, attractionName);}
-		else if(mode.equals("RELEASE")) {caoAPI.release(sender, attractionName);}
-		else if(mode.equals("POWER")) {caoAPI.power(sender, attractionName, "TOGGLE");}
-	}
 	public void sendMessage(CommandSender sender, String msgName, String args) {
 		if(sender == null) {return;}
 		if(config.contains(".Messages." + msgName) && !config.getString(".Messages." + msgName).equals("")) {
