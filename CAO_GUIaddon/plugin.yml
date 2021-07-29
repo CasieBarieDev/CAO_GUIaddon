@@ -1,0 +1,21 @@
+name: CAO_GUIaddon
+author: CasieBarie
+version: 1.0
+description: GUI addon for CasieAttractionOperate
+main: me.casiebarie.caoguiaddon.Main
+api-version: 1.13
+depend: [CasieAttractionOperate]
+softdepend: [PlaceholderAPI]
+commands:
+  CAOmenu:
+    description: Base command of CAO_GUIaddon.
+permissions:
+   CAO.menu.use:
+      description: Gives permission to use the menu.
+      default: op
+   CAO.menu.admin:
+      description: Gives permission to the CAOmenu reloadconfig command.
+      default: op
+   CAO.menu.cmd:
+      description: Gives permission to the CAOmenu command.
+      default: op

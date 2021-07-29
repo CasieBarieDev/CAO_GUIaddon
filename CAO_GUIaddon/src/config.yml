@@ -1,0 +1,127 @@
+#   ______     ___       ______                   _______  __    __   __          ___       _______   _______   ______   .__   __. 
+#  /      |   /   \     /  __  \                 /  _____||  |  |  | |  |        /   \     |       \ |       \ /  __  \  |  \ |  | 
+# |  ,----'  /  ^  \   |  |  |  |     ______    |  |  __  |  |  |  | |  |       /  ^  \    |  .--.  ||  .--.  |  |  |  | |   \|  | 
+# |  |      /  /_\  \  |  |  |  |    |______|   |  | |_ | |  |  |  | |  |      /  /_\  \   |  |  |  ||  |  |  |  |  |  | |  . `  | 
+# |  `----./  _____  \ |  `--'  |               |  |__| | |  `--'  | |  |     /  _____  \  |  '--'  ||  '--'  |  `--'  | |  |\   | 
+#  \______/__/     \__\ \______/                 \______|  \______/  |__|    /__/     \__\ |_______/ |_______/ \______/  |__| \__| 
+# 
+# ---------------------------------------------------------------------------------------------------------------------------------
+# This is the 1.12 config. Make sure if you use 1.13+ to change the items.
+# --------------------------------------------------------- MENU SETTINGS ---------------------------------------------------------
+MenuSettings:
+
+  #The title of the Menu.
+  Title: '&6&k.&r &3&l%attraction% Menu &6&k.'
+
+  #The size of the Menu. (9, 18, 17, 36, 45, 53)
+  Size: 9
+
+  #The time in ticks the items in the Menu will update.
+  UpdateInterval: 20
+  
+  #If the Menu should close when you click.
+  CloseOnClick: false
+  
+  #If CAO sends a message when you click.
+  MessageOnClick: false
+  
+  #Configure the items here.
+  Items:
+    Restraints:
+      ItemEnabled: true
+      Slot: 0
+      Open: #The settings for the Restrains Open item.
+        Name: '&6&lRestraints: &cOpen'
+        Lore:
+          - ''
+          - '&eClick to &aclose &ethe restraints.'
+        Item: TRAP_DOOR
+      Closed: #The settings for the Restraints Closed item.
+        Name: '&6&lRestraints: &aClosed'
+        Lore:
+          - ''
+          - '&eClick to &copen &ethe restraints.'
+        Item: TRAP_DOOR
+      NotAllowed: #The settings for the Restraints Not Allowed item. This item is showed when you can not open the Restraints.
+        Name: '&6&lRestraints: &aClosed'
+        Lore:
+          - ''
+          - '&cYou cannot open the restraints.'
+        Item: TRAP_DOOR
+
+    Gates:
+      ItemEnabled: true
+      Slot: 1
+      Open: #The settings for the Gates Open item.
+        Name: '&6&lGates: &cOpen'
+        Lore:
+          - ''
+          - '&eClick to &aclose &ethe gates.'
+        Item: FENCE_GATE
+      Closed: #The settings for the Gates Closed item.
+        Name: '&6&lGates: &aClosed'
+        Lore:
+          - ''
+          - '&eClick to &copen &ethe gates.'
+        Item: FENCE_GATE
+      NotAllowed: #The settings for the Gates Not Allowed item. This item is showed when you can not open the Gates.
+        Name: '&6&lGates: &aClosed'
+        Lore:
+          - ''
+          - '&cYou cannot open the gates.'
+        Item: DARK_OAK_FENCE_GATE
+
+    Release:
+      ItemEnabled: true
+      Slot: 4
+      Allowed: #The settings for the item when the attraction is allowed to Release.
+        Name: '&6&lRelease: &aAllowed'
+        Lore:
+          - ''
+          - '&eClick to release the attraction.'
+        Item: WOOL:5
+      Disallowed: #The setting fot the item when the attraction is NOT allowed to Release.
+        Name: '&6&lRelease: &cDisallowed'
+        Lore:
+          - ''
+          - '&cYou cannot release the attraction.'
+        Item: WOOL:14
+
+    Power:
+      ItemEnabled: true
+      Slot: 8
+      Enabled: #The settings for the item when the Power is Enabled.
+        Name: '&6&lPower: &aEnabled'
+        Lore:
+          - ''
+          - '&eClick to toggle the attraction &coff&e.'
+        Item: WOOL:5
+      Disabled: #The settings for the item when the Power is Disabled.
+        Name: '&6&lPower: &cDisabled'
+        Lore:
+          - ''
+          - '&eClick to toggle the attraction &aon&e.'
+        Item: WOOL:14
+      Startup: #The settings for the item when the Power is Starting Up.
+        Name: '&6&lPower: &9Starting up..'
+        Lore:
+        Item: WOOL:11
+      Shutdown: #The settings for the item when the Power is Shutting Down.
+        Name: '&6&lPower: &9Shutting down..'
+        Lore:
+        Item: WOOL:11
+# ---------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------ MESSAGES -----------------------------------------------------------
+# Use 'none' to disable. 
+# Message Placeholders:
+#    %args%
+#    %prefix% - The prefix is the prefix set in the CAO config.
+# PlaceholderAPI supported.
+Messages:
+  Usage: '%prefix%&4&lUsage: &c&l/CAOMENU open <attraction> <player>'
+  UsageAdmin: '%prefix%&4&lUsage: &c&l/CAOMENU ReloadConfig'
+  PlayerNotFound: '%prefix%&cThe player &d%args% &cis not online!'
+  ClosedMenu: '%prefix%&cThe menu has been closed due to a reload.'
+# ---------------------------------------------------------------------------------------------------------------------------------
+# By: CasieBarie || Source Code: ? || Support: https://discord.gg/ZptCBHeHyg
