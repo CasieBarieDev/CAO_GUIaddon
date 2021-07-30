@@ -40,7 +40,7 @@ public class Main extends JavaPlugin {
 		cao = (me.casiebarie.casieattractionoperate.Main) Bukkit.getPluginManager().getPlugin("CasieAttractionOperate");
 		return cao.api;}
     public void updateChecker() {
-        new UpdateChecker(this, 1).getVersion((Consumer<String>)(version -> {
+        new UpdateChecker(this, 94778).getVersion((Consumer<String>)(version -> {
             if (getDescription().getVersion().equalsIgnoreCase(version)) {
                 getLogger().info("You are using the most recent version. (v" + getDescription().getVersion() + ")");}
             else {getLogger().info("There is a new update available (v" + version + ")!   You are using: v" + getDescription().getVersion());}

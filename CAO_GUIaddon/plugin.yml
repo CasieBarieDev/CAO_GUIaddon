@@ -1,6 +1,6 @@
 name: CAO_GUIaddon
 author: CasieBarie
-version: 1.0
+version: 1.1
 description: GUI addon for CasieAttractionOperate
 main: me.casiebarie.caoguiaddon.Main
 api-version: 1.13

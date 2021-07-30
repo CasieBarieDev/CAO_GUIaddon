@@ -13,7 +13,7 @@ MenuSettings:
   #The title of the Menu.
   Title: '&6&k.&r &3&l%attraction% Menu &6&k.'
 
-  #The size of the Menu. (9, 18, 17, 36, 45, 53)
+  #The size of the Menu. (9, 18, 27, 36, 45, 53)
   Size: 9
 
   #The time in ticks the items in the Menu will update.
@@ -112,6 +112,14 @@ MenuSettings:
         Item: BLUE_WOOL
 # ---------------------------------------------------------------------------------------------------------------------------------
 
+# ------------------------------------------------------ ATTRACTION BLACKLIST -----------------------------------------------------
+AttractionBlacklist:
+  - Sample
+  - None
+
+IsWhiteList: false
+# ---------------------------------------------------------------------------------------------------------------------------------
+
 # ------------------------------------------------------------ MESSAGES -----------------------------------------------------------
 # Use 'none' to disable.
 # Message Placeholders:
@@ -119,9 +127,10 @@ MenuSettings:
 #    %prefix% - The prefix is the prefix set in the CAO config.
 # PlaceholderAPI supported.
 Messages:
-  Usage: '%prefix%&4&lUsage: &c&l/CAOMENU open <attraction> <player>'
-  UsageAdmin: '%prefix%&4&lUsage: &c&l/CAOMENU ReloadConfig'
+  Usage: '%prefix%&4&lUsage: &c&l/caomenu open <attraction> <player>'
+  UsageAdmin: '%prefix%&4&lUsage: &c&l/caomenu ReloadConfig'
   PlayerNotFound: '%prefix%&cThe player &d%args% &cis not online!'
   ClosedMenu: '%prefix%&cThe menu has been closed due to a reload.'
+  Blacklisted: '%prefix%&cThe attraction &d%args% &cis blacklisted in the config.'
 # ---------------------------------------------------------------------------------------------------------------------------------
 # By: CasieBarie || Source Code: ? || Support: https://discord.gg/ZptCBHeHyg

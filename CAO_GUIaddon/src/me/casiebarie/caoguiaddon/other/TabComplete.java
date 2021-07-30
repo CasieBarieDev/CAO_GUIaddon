@@ -30,15 +30,22 @@ public class TabComplete implements TabCompleter {
 			if(args.length == 1) {
 				if(!args[0].equals("")) {for(modes mode : modes.values()) {if(mode.name().toUpperCase().startsWith(args[0].toUpperCase())) {completions.add(mode.name());}}
 				} else {for(modes mode : modes.values()) {completions.add(mode.name());}}
-			} else if(args.length == 2 && args[0].equalsIgnoreCase("Open")) {
+			} else if(args.length == 2 && args[0].equalsIgnoreCase("Open") && sender.hasPermission("CAO.menu.cmd")) {
 				if(!args[1].equals("")) {
 					for(String attractionName : caoCONFIG.getConfigurationSection(".Attractions").getKeys(false)) {if(attractionName.toUpperCase().startsWith(args[1].toUpperCase())) {completions.add(attractionName);}}
 				} else {for(String attractionName : caoCONFIG.getConfigurationSection(".Attractions").getKeys(false)) {completions.add(attractionName);}}
-			} else if(args.length == 3 && args[0].equalsIgnoreCase("Open")) {
+			} else if(args.length == 3 && args[0].equalsIgnoreCase("Open") && sender.hasPermission("CAO.menu.cmd")) {
 				if(args[2].equals("")) {
 					for(Player player : Bukkit.getOnlinePlayers()) {if(player.getName().toUpperCase().startsWith(args[2].toUpperCase())) {completions.add(player.getName());}}
 				} else {for(Player player : Bukkit.getOnlinePlayers()) {completions.add(player.getName());}}
 			}
+		}
+		if(!sender.hasPermission("CAO.menu.admin")) {
+			completions.remove("ReloadConfig");
+			completions.remove("Info");
+		}
+		if(!sender.hasPermission("CAO.menu.cmd")) {
+			completions.remove("Open");
 		}
 		Collections.sort(completions);
 		return completions;

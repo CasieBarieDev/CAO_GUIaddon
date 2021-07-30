@@ -19,6 +19,7 @@ public class Commands implements CommandExecutor {
 	private API caoAPI;
 	private Menu menu;
 	private static FileConfiguration caoCONFIG;
+	private static FileConfiguration config;
 	public Commands(Main plugin, Functions f, API caoAPI, Menu menu) {
 		this.f = f;
 		this.caoAPI = caoAPI;
@@ -37,12 +38,14 @@ public class Commands implements CommandExecutor {
 						else {
 							if(args.length != 3) {f.sendMessage(sender, "Usage", ""); return false;}
 							for(Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-								if(!args[2].equals(onlinePlayer.getName())) {f.sendMessage(sender, "PlayerNotFound", ""); return false;}
+								if(!args[2].equals(onlinePlayer.getName())) {f.sendMessage(sender, "PlayerNotFound", args[2]); return false;}
 								player = onlinePlayer;
 							}	
 						}
 						File aFile1 = new File(Bukkit.getPluginManager().getPlugin("CasieAttractionOperate").getDataFolder() + File.separator + caoCONFIG.getString(".Attractions." + args[1]));
-						if(aFile1.exists()) {menu.openMenu(player, args[1]);
+						if(aFile1.exists()) {
+							if(!isInBlacklist(args[1])) {menu.openMenu(player, args[1]);
+							} else {f.sendMessage(sender, "Blacklisted", args[1]);}
 						} else {caoAPI.sendMessage(sender, "NotInConfig", args[1], "");}
 					} else {caoAPI.sendMessage(sender, "FeatureDisabled", "", "");}
 				} else {caoAPI.sendMessage(sender, "NoPermission", "", "");}
@@ -57,5 +60,18 @@ public class Commands implements CommandExecutor {
 			} else {f.sendMessage(sender, "Usage", "");}
 		}
 		return false;
+	}
+	
+	public Boolean isInBlacklist(String attractionName) {
+		config = f.getCONFIG();
+		Boolean isWhiteList = config.getBoolean(".IsWhiteList");
+		for(String blacklisted : config.getStringList(".AttractionBlacklist")) {
+			if(blacklisted.equals(attractionName)) {
+				if(isWhiteList) {return false;
+				} else {return true;}
+			} else {continue;}
+		}
+		if(isWhiteList) {return true;
+		} else {return false;}
 	}
 }
